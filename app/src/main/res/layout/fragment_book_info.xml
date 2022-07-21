@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#100a20"
+    tools:context=".BookInfoFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="32dp"
+            android:paddingBottom="32dp">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/ic_back"/>
+
+            <ImageView
+                android:id="@+id/basket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/ic_basket"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/image"
+                android:layout_width="162dp"
+                android:layout_height="243dp"
+                android:scaleType="fitXY"
+                android:layout_marginTop="32dp"
+                app:shapeAppearanceOverlay="@style/roundedImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/back" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:textSize="30sp"
+                android:fontFamily="@font/gtsectra"
+                android:ellipsize="none"
+                android:scrollHorizontally="false"
+                android:breakStrategy="balanced"
+                android:gravity="center"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image" />
+
+            <TextView
+                android:id="@+id/author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:textSize="18sp"
+                android:fontFamily="@font/montserrat500"
+                android:layout_marginTop="6dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title" />
+
+            <TextView
+                android:id="@+id/ratingScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:layout_marginTop="6dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/montserrat500"
+                app:layout_constraintEnd_toStartOf="@id/ratingAmount"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/author" />
+
+            <TextView
+                android:id="@+id/ratingAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:textSize="14sp"
+                android:fontFamily="@font/montserrat400"
+                android:layout_marginStart="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ratingScore"
+                app:layout_constraintTop_toTopOf="@id/ratingScore"
+                app:layout_constraintBottom_toBottomOf="@id/ratingScore"/>
+
+            <Button
+                android:id="@+id/buy"
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:textSize="18sp"
+                android:fontFamily="@font/montserrat700"
+                android:background="@drawable/buy_button_shape"
+                app:layout_constraintEnd_toStartOf="@id/free"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ratingScore" />
+
+            <Button
+                android:id="@+id/free"
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:background="@drawable/free_button_shape"
+                android:fontFamily="@font/gilroybold"
+                android:textColor="#fff"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/buy"
+                app:layout_constraintTop_toBottomOf="@id/ratingScore"
+                android:text="Free preview"
+                android:textAllCaps="false"/>
+
+            <TextView
+                android:id="@+id/also"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You can also like"
+                android:textColor="#fff"
+                android:textSize="14sp"
+                android:fontFamily="@font/montserrat600"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/free"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/also"
+                android:orientation="horizontal"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
